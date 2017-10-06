@@ -47,13 +47,13 @@
     <EmbeddedResource Update="Resources\Views\Home\Index.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Views\Home\SubmitFeedback.en.resx">
+    <EmbeddedResource Update="Resources\Views\Home\FeedbackResult.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Views\Home\SubmitFeedback.pl.resx">
+    <EmbeddedResource Update="Resources\Views\Home\FeedbackResult.pl.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Views\Home\SubmitFeedback.ru.resx">
+    <EmbeddedResource Update="Resources\Views\Home\FeedbackResult.ru.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views\Home\Index.pl.resx">

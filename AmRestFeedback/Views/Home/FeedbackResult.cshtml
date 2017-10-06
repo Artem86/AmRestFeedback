@@ -1,0 +1,17 @@
+@model HomeViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<hr />
+@if (Model.SubmitResult)
+{
+    <h4>@Localizer["ThanksForFeedback"]</h4>
+}
+else
+{
+    <h4>@Localizer["SubmitFeedbackFailed"]</h4>
+}
+<hr />
+<p>
+    <a asp-controller="Home" asp-action="Index">@Localizer["ReturnMainPageCaption"]</a>
+</p>

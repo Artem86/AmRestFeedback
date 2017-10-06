@@ -46,7 +46,8 @@ namespace AmRestFeedback.Controllers
                 Description = model.Description
             });
             await db.SaveChangesAsync();
-            return View();
+            model.SubmitResult = true;
+            return PartialView("FeedbackResult", model);
         }
 
         public IActionResult About()

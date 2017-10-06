@@ -19,5 +19,7 @@ namespace AmRestFeedback.Models.HomeViewModels
         [DataType(DataType.Text)]
         [StringLength(100, ErrorMessage = "BetweenLengthValidationMessage", MinimumLength = 2)]
         public string Name { get; set; }
+
+        public bool SubmitResult { get; set; }
     }
 }

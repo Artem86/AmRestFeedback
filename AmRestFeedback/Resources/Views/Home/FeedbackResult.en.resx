@@ -118,9 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ReturnMainPageCaption" xml:space="preserve">
-    <value>Got to main page</value>
+    <value>Go to main page</value>
   </data>
-  <data name="ThankForFeedback" xml:space="preserve">
+  <data name="SubmitFeedbackFailed" xml:space="preserve">
+    <value>Error due to feedback sending</value>
+  </data>
+  <data name="ThanksForFeedback" xml:space="preserve">
     <value>Thanks for your feedback</value>
   </data>
 </root>
