@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AmRestFeedback.Models.ManageViewModels
 {
@@ -17,5 +18,7 @@ namespace AmRestFeedback.Models.ManageViewModels
         public bool TwoFactor { get; set; }
 
         public bool BrowserRemembered { get; set; }
+
+        public bool CurrentUserIsAdministrator { get; set; }
     }
 }

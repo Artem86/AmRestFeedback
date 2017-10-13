@@ -128,6 +128,8 @@ namespace AmRestFeedback
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DbInitializer.InitializeAsync(app.ApplicationServices);
         }
     }
 }

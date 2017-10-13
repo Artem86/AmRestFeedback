@@ -10,6 +10,7 @@ using Microsoft.Extensions.Options;
 using AmRestFeedback.Models;
 using AmRestFeedback.Models.ManageViewModels;
 using AmRestFeedback.Services;
+using AmRestFeedback.Enums;
 
 namespace AmRestFeedback.Controllers
 {
@@ -58,13 +59,15 @@ namespace AmRestFeedback.Controllers
             {
                 return View("Error");
             }
-            var model = new IndexViewModel
+
+            var model = new IndexViewModel()
             {
                 HasPassword = await _userManager.HasPasswordAsync(user),
                 PhoneNumber = await _userManager.GetPhoneNumberAsync(user),
                 TwoFactor = await _userManager.GetTwoFactorEnabledAsync(user),
                 Logins = await _userManager.GetLoginsAsync(user),
-                BrowserRemembered = await _signInManager.IsTwoFactorClientRememberedAsync(user)
+                BrowserRemembered = await _signInManager.IsTwoFactorClientRememberedAsync(user),
+                CurrentUserIsAdministrator = await _userManager.IsInRoleAsync(user, nameof(RolesEnum.Administrator))
             };
             return View(model);
         }

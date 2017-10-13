@@ -1,47 +1,45 @@
-﻿@model HomeViewModel
+@model AmRestFeedback.Models.UsersViewModels.UserViewModel
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-
-@{
-    ViewData["Title"] = "Home Page";
-}
 
 <div class="row">
     <div class="col-md-8">
         <section>
-            <form asp-controller="Home" asp-action="SubmitFeedback" 
-                    data-ajax="true" 
-                    data-ajax-update="#feedbackform" 
-                    method="post" 
-                    class="form-horizontal"
-                    id="feedbackform">
+            <form asp-controller="Users" asp-action="Save"
+                  data-ajax="true"
+                  data-ajax-update="#saveuserform"
+                  method="post"
+                  class="form-horizontal"
+                  id="saveuserform">
                 <hr />
-                <h4>@Localizer["SendFeedbackCaption"]</h4>
+                <h4>@Localizer["EditUserCaption"]</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Name" class="col-md-2 control-label"></label>
+                    <label asp-for="User.Email" class="col-md-2 control-label"></label>
                     <div class="col-md-10">
-                        <input asp-for="Name" class="form-control" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
+                        <span asp-for="User.Email" class="form-control">@Model.User.Email</span>
+                        <span asp-validation-for="User.Email" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="form-group">
+                @*<div class="form-group">
                     <label asp-for="Description" class="col-md-2 control-label"></label>
                     <div class="col-md-10">
                         <textarea rows="8" asp-for="Description" class="form-control"></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
-                </div>
+                </div>*@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" class="btn btn-default">@Localizer["SendFeedbackSubmit"]</button>
+                        <button type="submit" class="btn btn-default">@Localizer["SaveUser"]</button>
                     </div>
                 </div>
             </form>
         </section>
     </div>
 </div>
-@section Scripts {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
-}
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
