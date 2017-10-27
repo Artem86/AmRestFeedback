@@ -8,7 +8,10 @@ namespace AmRestFeedback.Models.UsersViewModels
 {
     public class UserViewModel
     {
-        public ApplicationUser User { get; set; }
-        public IEnumerable<string> Roles { get; set; }
+        public string Id { get; set; }
+        public string Email { get; set; }
+        public string UserName { get; set; }
+        public string Roles { get; set; }
+        public IEnumerable<EditRoleViewModel> RolesList { get; set; }
     }
 }

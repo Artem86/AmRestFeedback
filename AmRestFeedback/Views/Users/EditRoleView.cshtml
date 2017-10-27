@@ -1,0 +1,16 @@
+@model EditRoleViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<div class="form-horizontal">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<input type="hidden" asp-for="UserId" />
+    <div class="form-group">
+        <label asp-for="Role" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Role" readonly class="form-control" />
+            <span asp-validation-for="Role" class="text-danger"></span>
+            @Html.ActionLink(Localizer["Delete"].Value, "DeleteRole", "Users", new { id = Model.UserId, roleName = Model.Role }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
+

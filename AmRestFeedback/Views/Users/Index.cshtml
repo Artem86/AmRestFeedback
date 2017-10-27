@@ -16,9 +16,9 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.User.Email</td>
-                    <td>@string.Join(", ", item.Roles)</td>
-                    <td>@Html.ActionLink(Localizer["Edit"].Value, "Edit", "Users", new { item.User.Id }, new { @class = "btn btn-primary" })</td>
+                    <td>@item.Email</td>
+                    <td>@item.Roles</td>
+                    <td>@Html.ActionLink(Localizer["Edit"].Value, "Edit", "Users", new { id = item.Id }, new { @class = "btn btn-primary" })</td>
                 </tr>
             }
         </tbody>

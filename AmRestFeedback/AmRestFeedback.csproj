@@ -44,6 +44,9 @@
     <EmbeddedResource Update="Resources\Models\HomeViewModels\HomeViewModel.ru.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Users\Edit.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views\Home\Index.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>

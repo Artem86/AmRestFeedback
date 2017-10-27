@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using AmRestFeedback.Models;
 using AmRestFeedback.Models.HomeViewModels;
+using AmRestFeedback.Models.UsersViewModels;
 
 namespace AmRestFeedback.Data
 {

@@ -49,22 +49,46 @@ namespace AmRestFeedback.Controllers
                 var r = await _userManager.GetRolesAsync(u);
                 usersVM.Add(new UserViewModel
                 {
-                    User = u,
-                    Roles = r
+                    Id = u.Id,
+                    UserName = u.UserName,
+                    Email = u.Email,
+                    Roles = string.Join(", ", r)
                 });
             }
 
             return usersVM;
         }
 
-        public async Task<IActionResult> Edit(object userId)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(UserViewModel userVm)
         {
-            var user = await _userManager.FindByIdAsync((string)userId);
+            var user = await _userManager.FindByIdAsync(userVm.Id);
             var roles = await _userManager.GetRolesAsync(user);
+            return View("Index", await GetUsersVmAsync());
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            var roles = await _userManager.GetRolesAsync(user);
+            var rolesVms = new List<EditRoleViewModel>();
+            foreach(var role in roles)
+            {
+                rolesVms.Add(new EditRoleViewModel
+                {
+                    UserId = user.Id,
+                    Role = role
+                });
+            }
             var userVM = new UserViewModel
             {
-                User = user,
-                Roles = roles
+                Id = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                Roles = string.Join(", ", roles),
+                RolesList = rolesVms
             };
             return View("Edit", userVM);
         }

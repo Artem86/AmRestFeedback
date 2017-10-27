@@ -5,9 +5,8 @@
 <div class="row">
     <div class="col-md-8">
         <section>
-            <form asp-controller="Users" asp-action="Save"
-                  data-ajax="true"
-                  data-ajax-update="#saveuserform"
+            <form asp-controller="Users" asp-action="Edit"
+
                   method="post"
                   class="form-horizontal"
                   id="saveuserform">
@@ -16,19 +15,18 @@
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="User.Email" class="col-md-2 control-label"></label>
+                    <label asp-for="Email" class="col-md-2 control-label"></label>
                     <div class="col-md-10">
-                        <span asp-for="User.Email" class="form-control">@Model.User.Email</span>
-                        <span asp-validation-for="User.Email" class="text-danger"></span>
+                        <input asp-for="Email" class="form-control"/>
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                 </div>
-                @*<div class="form-group">
-                    <label asp-for="Description" class="col-md-2 control-label"></label>
-                    <div class="col-md-10">
-                        <textarea rows="8" asp-for="Description" class="form-control"></textarea>
-                        <span asp-validation-for="Description" class="text-danger"></span>
-                    </div>
-                </div>*@
+                <h4>@Localizer["UserRolesCaption"]</h4>
+                <hr />
+                @foreach (var role in Model.RolesList)
+                {
+                    await Html.RenderPartialAsync("EditRoleView", role);
+                }
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <button type="submit" class="btn btn-default">@Localizer["SaveUser"]</button>
