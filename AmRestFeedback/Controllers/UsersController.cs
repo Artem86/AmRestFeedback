@@ -23,7 +23,7 @@ namespace AmRestFeedback.Controllers
           ILoggerFactory loggerFactory)
         {
             _userManager = userManager;
-            _logger = loggerFactory.CreateLogger<ManageController>();
+            _logger = loggerFactory.CreateLogger<UsersController>();
         }
 
         public async Task<IActionResult> Index()
@@ -31,9 +31,9 @@ namespace AmRestFeedback.Controllers
             return View(await GetUsersVmAsync());
         }
 
-        private Task<ApplicationUser> GetCurrentUserAsync()
+        private async Task<ApplicationUser> GetCurrentUserAsync()
         {
-            return _userManager.GetUserAsync(HttpContext.User);
+            return await _userManager.GetUserAsync(HttpContext.User);
         }
 
         private async Task<IEnumerable<UserViewModel>> GetUsersVmAsync()
